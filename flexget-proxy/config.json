@@ -12,7 +12,7 @@
     "init": true,
     "true": true,
     "ingress": true,
-    "ingress_entry": "flexget/",
+    "ingress_entry": "/flexget/",
     "timeout": 30,
     "panel_icon": "mdi:alpha-x-box-outline",
     "map": [
