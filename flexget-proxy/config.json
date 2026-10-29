@@ -1,6 +1,6 @@
 {
     "name": "Flexget Proxy",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "slug": "flexget_proxy",
     "description": "Proxy for Flexget",
     "url": "https://github.com/etakpte/hassio-proxies/tree/master/flexget-proxy",
@@ -31,6 +31,5 @@
     "schema": {
       "server": "url",
       "auth_token": "str?"
-    },
-    "image": "ghcr.io/zigbee2mqtt/zigbee2mqtt-proxy-{arch}"
+    }
 }
