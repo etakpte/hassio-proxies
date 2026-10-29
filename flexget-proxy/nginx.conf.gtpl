@@ -79,9 +79,12 @@ http {
             proxy_set_header X-Real-IP $remote_addr;
 
             # Rewrite absolute /flexget/ paths in HTML/JS/CSS to include the Ingress prefix
-            sub_filter_once  off;
-            sub_filter_types text/html text/css text/javascript application/javascript application/x-javascript;
-            sub_filter '/flexget/' '$http_x_ingress_path/flexget/';
+            # sub_filter_once  off;
+            # sub_filter_types text/html text/css text/javascript application/javascript application/x-javascript;
+            # sub_filter '/flexget/' '$http_x_ingress_path/flexget/';
+            sub_filter_once  on;
+            sub_filter_types text/html;
+            sub_filter '<base href="/flexget/">' '<base href="$http_x_ingress_path/flexget/">';
         }
     }
 }
