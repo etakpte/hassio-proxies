@@ -1,6 +1,6 @@
 {
     "name": "Flexget Proxy",
-    "version": "0.3.3",
+    "version": "0.3.4",
     "slug": "flexget_proxy",
     "description": "Proxy for Flexget",
     "url": "https://github.com/etakpte/hassio-proxies/tree/master/flexget-proxy",
@@ -12,7 +12,7 @@
     "init": true,
     "true": true,
     "ingress": true,
-    "ingress_entry": "/flexget/",
+    "ingress_entry": "flexget/",
     "timeout": 30,
     "panel_icon": "mdi:alpha-x-box-outline",
     "map": [
