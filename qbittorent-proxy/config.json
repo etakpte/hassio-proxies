@@ -1,0 +1,35 @@
+{
+    "name": "qBittorent Proxy",
+    "version": "0.3.0",
+    "slug": "qbittorent_proxy",
+    "description": "Proxy for qBittorent",
+    "url": "https://github.com/etakpte/hassio-proxies/tree/master/qbittorent-proxy",
+    "arch": [
+      "aarch64",
+      "amd64"
+    ],
+    "boot": "auto",
+    "init": true,
+    "true": true,
+    "ingress": true,
+    "timeout": 30,
+    "panel_icon": "mdi:download",
+    "map": [
+      "config:ro"
+    ],
+    "ports": {
+      "8099/tcp": null
+    },
+    "ports_description": {
+      "8099/tcp": "Frontend tcp-listen port"
+    },
+    "options": {
+      "server": null,
+      "auth_token": ""
+    },
+    "schema": {
+      "server": "url",
+      "auth_token": "str?"
+    },
+    "image": "ghcr.io/zigbee2mqtt/zigbee2mqtt-proxy-{arch}"
+}
