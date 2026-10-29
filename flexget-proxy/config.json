@@ -1,6 +1,6 @@
 {
     "name": "Flexget Proxy",
-    "version": "0.3.4",
+    "version": "0.3.5",
     "slug": "flexget_proxy",
     "description": "Proxy for Flexget",
     "url": "https://github.com/etakpte/hassio-proxies/tree/master/flexget-proxy",
@@ -25,11 +25,9 @@
       "8099/tcp": "Frontend tcp-listen port"
     },
     "options": {
-      "server": null,
-      "auth_token": ""
+      "server": null
     },
     "schema": {
-      "server": "url",
-      "auth_token": "str?"
+      "server": "url"
     }
 }
