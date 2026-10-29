@@ -1,6 +1,6 @@
 {
     "name": "Flexget Proxy",
-    "version": "0.3.1",
+    "version": "0.3.2",
     "slug": "flexget_proxy",
     "description": "Proxy for Flexget",
     "url": "https://github.com/etakpte/hassio-proxies/tree/master/flexget-proxy",
