@@ -1,5 +1,3 @@
-
-
 # Run nginx in foreground.
 daemon off;
 
@@ -49,17 +47,19 @@ http {
             allow   172.30.32.2;
             deny    all;
 
+            # Must be host:port ONLY, no path, no trailing slash
+            # e.g. http://192.168.31.27:9092
             set     $target "{{ .server }}";
-            set     $token "{{ .auth_token }}";
 
-            set $args                   $args&token=$token;
             proxy_pass                  $target;
             proxy_http_version          1.1;
             proxy_ignore_client_abort   off;
             proxy_read_timeout          86400s;
-            proxy_redirect              off;
             proxy_send_timeout          86400s;
             proxy_max_temp_file_size    0;
+
+            # Rewrite redirects from FlexGet so they stay inside the Ingress path
+            proxy_redirect ~^(?:https?://[^/]+)?/(.*)$ $http_x_ingress_path/$1;
 
             proxy_no_cache     1;
             proxy_cache_bypass 1;
@@ -68,6 +68,7 @@ http {
             add_header Pragma "no-cache";
             add_header Expires 0;
 
+            # Needed so sub_filter can read the response (no gzip)
             proxy_set_header Accept-Encoding "";
             proxy_set_header Connection $connection_upgrade;
             proxy_set_header Host $http_host;
@@ -77,8 +78,10 @@ http {
             proxy_set_header X-NginX-Proxy true;
             proxy_set_header X-Real-IP $remote_addr;
 
+            # Rewrite absolute /flexget/ paths in HTML/JS/CSS to include the Ingress prefix
+            sub_filter_once  off;
+            sub_filter_types text/html text/css text/javascript application/javascript application/x-javascript;
+            sub_filter '/flexget/' '$http_x_ingress_path/flexget/';
         }
     }
 }
-
-
