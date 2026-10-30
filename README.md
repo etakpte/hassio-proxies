@@ -2,7 +2,7 @@
     <h1> Proxy apps for Home Assistant</h1>
 </div>
 
-
+Based on the similar zigbee2mqtt-proxy
 
 ## Credits
 
