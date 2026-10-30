@@ -1,6 +1,6 @@
 {
     "name": "qBittorent Proxy",
-    "version": "0.3.4",
+    "version": "0.3.0",
     "slug": "qbittorent_proxy",
     "description": "Proxy for qBittorent",
     "url": "https://github.com/etakpte/hassio-proxies/tree/master/qbittorent-proxy",
@@ -29,5 +29,5 @@
     "schema": {
       "server": "url"
     },
-    "image": "ghcr.io/zigbee2mqtt/zigbee2mqtt-proxy-amd64:0.3.0"
+    "image": "ghcr.io/zigbee2mqtt/zigbee2mqtt-proxy-{arch}"
 }
