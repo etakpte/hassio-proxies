@@ -24,10 +24,12 @@
       "8099/tcp": "Frontend tcp-listen port"
     },
     "options": {
-      "server": null
+      "server": null,
+      "auth_token": ""
     },
     "schema": {
-      "server": "url"
+      "server": "url",
+      "auth_token": "str?"
     },
     "image": "ghcr.io/zigbee2mqtt/zigbee2mqtt-proxy-{arch}"
 }
