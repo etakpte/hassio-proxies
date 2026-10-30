@@ -76,7 +76,9 @@ http {
             proxy_set_header X-Forwarded-Proto $scheme;
             proxy_set_header X-NginX-Proxy true;
             proxy_set_header X-Real-IP $remote_addr;
-
+            sub_filter_once  off;
+            sub_filter_types text/html text/javascript application/javascript application/x-javascript;
+            sub_filter 'window.parent' 'window';
         }
     }
 }
