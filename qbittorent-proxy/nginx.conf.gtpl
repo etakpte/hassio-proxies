@@ -78,8 +78,8 @@ http {
             proxy_set_header X-Real-IP $remote_addr;
             sub_filter_once  off;
             sub_filter_types text/html text/javascript application/javascript application/x-javascript;
-            sub_filter 'window.parent' 'window';
-            sub_filter 'parent.getCoordinates()' 'window.getCoordinates()';
+            sub_filter 'window.parent' '(window.parent===window.top?window:window.parent)';
+            sub_filter 'parent.getCoordinates()' '(window.parent===window.top?window:window.parent).getCoordinates()';
         }
     }
 }
