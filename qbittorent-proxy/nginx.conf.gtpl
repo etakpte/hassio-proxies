@@ -79,6 +79,7 @@ http {
             sub_filter_once  off;
             sub_filter_types text/html text/javascript application/javascript application/x-javascript;
             sub_filter 'window.parent' 'window';
+            sub_filter 'parent.getCoordinates()' 'window.getCoordinates()';
         }
     }
 }
