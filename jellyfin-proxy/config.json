@@ -1,0 +1,34 @@
+{
+    "name": "Jellyfin Proxy",
+    "version": "0.0.1",
+    "slug": "jellyfin_proxy",
+    "description": "Proxy for Jellyfin",
+    "url": "https://github.com/etakpte/hassio-proxies/tree/master/jellyfin-proxy",
+    "arch": [
+      "aarch64",
+      "amd64"
+    ],
+    "boot": "auto",
+    "init": true,
+    "true": true,
+    "ingress": true,
+    "timeout": 30,
+    "panel_icon": "mdi:download",
+    "map": [
+      "config:ro"
+    ],
+    "ports": {
+      "8099/tcp": null
+    },
+    "ports_description": {
+      "8099/tcp": "Frontend tcp-listen port"
+    },
+    "options": {
+      "server": null,
+      "auth_token": ""
+    },
+    "schema": {
+      "server": "url",
+      "auth_token": "str?"
+    }
+}
