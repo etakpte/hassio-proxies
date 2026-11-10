@@ -44,38 +44,28 @@ http {
 
         root /dev/null;
         server_name _;
-
         location / {
             allow   172.30.32.2;
             deny    all;
 
-            set     $target "{{ .server }}";
-            set     $token "{{ .auth_token }}";
+            set $target "{{ .server }}";   # http://JELLYFIN_IP:8096, no path
 
-            set $args                   $args&token=$token;
-            proxy_pass                  $target;
-            proxy_http_version          1.1;
-            proxy_ignore_client_abort   off;
-            proxy_read_timeout          86400s;
-            proxy_redirect              off;
-            proxy_send_timeout          86400s;
-            proxy_max_temp_file_size    0;
+            proxy_pass                 $target;
+            proxy_http_version         1.1;
+            proxy_ignore_client_abort  off;
+            proxy_read_timeout         86400s;
+            proxy_send_timeout         86400s;
+            proxy_redirect             off;
+            proxy_max_temp_file_size   0;
+            proxy_buffering            off;
+            proxy_request_buffering    off;
 
-            proxy_no_cache     1;
-            proxy_cache_bypass 1;
-
-            add_header Cache-Control "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0";
-            add_header Pragma "no-cache";
-            add_header Expires 0;
-
-            proxy_set_header Accept-Encoding "";
-            proxy_set_header Connection $connection_upgrade;
-            proxy_set_header Host $http_host;
-            proxy_set_header Upgrade $http_upgrade;
-            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header Connection       $connection_upgrade;
+            proxy_set_header Host             $http_host;
+            proxy_set_header Upgrade          $http_upgrade;
+            proxy_set_header X-Forwarded-For  $proxy_add_x_forwarded_for;
             proxy_set_header X-Forwarded-Proto $scheme;
-            proxy_set_header X-NginX-Proxy true;
-            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Real-IP        $remote_addr;
         }
     }
 }
