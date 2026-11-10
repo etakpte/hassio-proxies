@@ -1,6 +1,6 @@
 {
     "name": "Jellyfin Proxy",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "slug": "jellyfin_proxy",
     "description": "Proxy for Jellyfin",
     "url": "https://github.com/etakpte/hassio-proxies/tree/master/jellyfin-proxy",
